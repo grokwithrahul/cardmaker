@@ -1,0 +1,4 @@
+v0.0.2
+New Features:
+ - Can create sketches of the image with the photoType parameter
+ - Can add custom backgrounds

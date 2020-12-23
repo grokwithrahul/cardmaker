@@ -1,5 +1,5 @@
 from tools import cardCreate
-from PIL import Image
+from sketchify import sketch
 import os
 
 FILE_PATH = os.path.dirname(__file__)
@@ -7,7 +7,7 @@ FONT_PATH = os.environ.get('FONT_PATH', os.path.join(FILE_PATH, 'Brusher.ttf'))
 BG_PATH = os.environ.get('BG_PATH', os.path.join(FILE_PATH, 'defaultbg.png'))
 
 class cardmaker():
-    def __init__(self, lastName, toWhom, photoPath, savePath='./', style=1, photoType='sketch',
+    def __init__(self, lastName, toWhom, photoPath, savePath='./', style=1, photoType='normal',
                  fontPath = None, bgPath = None):
         self.style = style
         self.lastName = lastName
@@ -22,10 +22,13 @@ class cardmaker():
             raise TypeError('Errno1 Parameter "toWhom" must be a list')
 
     def create(self):
+        if self.photoType == 'sketch':
+            sketch.normalsketch(self.photoPath, self.savePath, 'image')
+            self.photoPath = self.savePath+'image.png'
         for name in self.toWhom:
-            card = cardCreate(self.lastName, name, self.photoPath, self.style, self.photoType, self.fontPath, self.bgPath)
+            card = cardCreate(self.lastName, name, self.photoPath, self.style, self.fontPath, self.bgPath)
             card.save(self.savePath+name+'.png')
 
 
-a = cardmaker('Prabhu', ['Rahul', 'Friend'], './cardmaker/pexels-rodnae-productions-6115401.jpg')
+a = cardmaker('Prabhu', ['Rahul', 'Friend'], './christmascardify/pexels-rodnae-productions-6115401.jpg')
 a.create()
