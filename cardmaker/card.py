@@ -30,5 +30,5 @@ class cardmaker():
             card.save(self.savePath+name+'.png')
 
 
-a = cardmaker('Prabhu', ['Rahul', 'Friend'], './christmascardify/pexels-rodnae-productions-6115401.jpg')
+a = cardmaker('Prabhu', ['Rahul', 'Friend'], './cardmaker/pexels-rodnae-productions-6115401.jpg')
 a.create()
