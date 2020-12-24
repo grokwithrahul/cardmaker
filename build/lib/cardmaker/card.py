@@ -9,7 +9,7 @@ BG_PATH = os.environ.get('BG_PATH', os.path.join(FILE_PATH, 'defaultbg.png'))
 class cardmaker():
     def __init__(self, lastName, toWhom, photoPath, savePath='./', style=1, photoType='normal', fontPath = None,
                  bgPath = None, fontColorOpening='#ffffff', fontColorMessage='#ffffff',
-                 customOpening='Merry Christmas!', customMessage=None):
+                 customOpening='Merry Christmas', customMessage=None):
         self.style = style
         self.lastName = lastName
         self.photoPath = photoPath
