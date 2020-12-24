@@ -1,8 +1,12 @@
-Current Version: v0.0.8
+Current Version: v0.0.11
+
+v0.0.9, v0.0.10, v0.0.11
+New Features:
+ - Can give custom opening and Message with customMessage and customOpening parameters
 
 v0.0.6, v0.0.7, v0.0.8
 New Features:
- - Can control message and opening text.
+ - Can control message and opening text color, with fontColorMessage and fontColorOpening parameters.
 
 v0.0.3, v0.0.4, v0.0.5
 New Features:

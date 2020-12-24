@@ -5,7 +5,7 @@ with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
 setup(name='cardmaker',
-      version='0.0.8',
+      version='0.0.11',
       description='Automate your christmas card creation!',
       long_description=open("README.md").read(),
       long_description_content_type='text/markdown',

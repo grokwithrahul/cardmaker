@@ -12,7 +12,8 @@ styles = {
 }
 
 
-def cardCreate(lastName, toWhom, photoPath, style, fontPath, bgPath, fontColorOpening, fontColorMessage):
+def cardCreate(lastName, toWhom, photoPath, style, fontPath, bgPath, fontColorOpening, fontColorMessage, customOpening,
+               customMessage):
     def write(img, fontPath, text, width, y, fontColor, fontSize=200, offset=0):
         font = ImageFont.truetype(fontPath, fontSize)
         draw = ImageDraw.Draw(img)
@@ -32,8 +33,14 @@ def cardCreate(lastName, toWhom, photoPath, style, fontPath, bgPath, fontColorOp
     photo = photo.resize((photow, photoh))
 
     bg.paste(photo, (photox, photoy))
-    out = write(bg, fontPath, 'Merry Christmas', 2000, 20, fontColorOpening, fontSize=125)
+    if not customOpening:
+        out = write(bg, fontPath, 'Merry Christmas', 2000, 20, fontColorOpening, fontSize=125)
+    else:
+        out = write(bg, fontPath, customOpening, 2000, 20, fontColorOpening, fontSize=125)
     out = write(bg, fontPath, toWhom+'!', 2000, 150, fontColorOpening, offset=20)
-    out = write(bg, fontPath, "From the " + lastName+'s', 2000, 1150, fontColorMessage, offset=20)
+    if not customMessage:
+        out = write(bg, fontPath, "From the " + lastName+'s', 2000, 1150, fontColorMessage, offset=20)
+    else:
+        out = write(bg, fontPath, customMessage, 2000, 1150, fontColorMessage, offset=20)
 
     return out
